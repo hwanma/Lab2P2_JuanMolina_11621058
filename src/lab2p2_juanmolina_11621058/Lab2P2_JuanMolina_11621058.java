@@ -48,7 +48,7 @@ public class Lab2P2_JuanMolina_11621058 {
         else if(opcion == 2)
             editarAnimal();
         else if(opcion == 3)
-            imprimirAnimal();
+            imprimir();
         else if(opcion == 4)
             alimentacion();
         else if(opcion == 5)
@@ -81,8 +81,18 @@ public class Lab2P2_JuanMolina_11621058 {
     
     public static void editarAnimal(){
         System.out.println("Ingrese el nombre cientifico: ");
+        sc.nextLine();
         String nombreEditar = sc.nextLine();
-        int pos = registroAnimales.indexOf(nombreEditar);
+        
+        int counter = 0;
+        int pos = 0;
+        
+        for (Animales animal : registroAnimales) {
+            if(animal.getNombreCientifico().equals(nombreEditar)){
+                pos = counter;
+            }
+            counter ++;
+        }
         
         System.out.println("1. Editar atributo\n"+
                             "2. Editar todo\n");
@@ -107,21 +117,25 @@ public class Lab2P2_JuanMolina_11621058 {
         int opcion = sc.nextInt();
         if(opcion == 1){
             System.out.println("Nombre Cientifico: ");
+            sc.nextLine();
             registroAnimales.get(pos).setNombreCientifico(sc.nextLine());
         }else if(opcion == 2){
-            System.out.println("Nombre Comun: ");
+            System.out.print("Nombre Comun: ");
+            
             registroAnimales.get(pos).setNombreComun(sc.next());
         }else if(opcion == 3){
-            System.out.println("Habitat: ");
+            System.out.print("Habitat: ");
             registroAnimales.get(pos).setHabitat(sc.next());
         }else if(opcion == 4){
-            System.out.println("Alimentacion: ");
+            System.out.print("Alimentacion: ");
             registroAnimales.get(pos).setAlimentacion(sc.next());
         }else if(opcion == 5){
-            System.out.println("Descripcion Rasgos: ");
+            System.out.print("Descripcion Rasgos: ");
+            sc.nextLine();
             registroAnimales.get(pos).setDescripcionRasgos(sc.nextLine());
         }else if(opcion == 6){
-            System.out.println("Distribucion Geografica: ");
+            System.out.print("Distribucion Geografica: ");
+            sc.nextLine();
             registroAnimales.get(pos).setDistribucionGeografica(sc.nextLine());
         }else if(opcion == 7){
             System.out.println("Vida: ");
@@ -131,18 +145,71 @@ public class Lab2P2_JuanMolina_11621058 {
     
     public static void editarTodo(int pos){
         System.out.println("Nombre Cientifico: ");
+        sc.nextLine();
         registroAnimales.get(pos).setNombreCientifico(sc.nextLine());
         System.out.println("Nombre Comun: ");
+        
         registroAnimales.get(pos).setNombreComun(sc.next());
         System.out.println("Habitat: ");
+        
         registroAnimales.get(pos).setHabitat(sc.next());
         System.out.println("Alimentacion: ");
+        
         registroAnimales.get(pos).setAlimentacion(sc.next());
         System.out.println("Descripcion Rasgos: ");
+        sc.nextLine();
         registroAnimales.get(pos).setDescripcionRasgos(sc.nextLine());
         System.out.println("Distribucion Geografica: ");
         registroAnimales.get(pos).setDistribucionGeografica(sc.nextLine());
         System.out.println("Vida: ");
+        
         registroAnimales.get(pos).setVida(sc.nextInt());
+    }
+    
+    public static void imprimir(){
+        System.out.println("1. Solicitar posicion\n"+
+                            "2. Solicitar nombre cientifico\n"+
+                            "3. Listar Animales\n");
+        int opcion = sc.nextInt();
+        
+        if(opcion == 1){
+            imprimirPosicion();
+        } else if (opcion == 2){
+            imprimirNombreCientifico();
+        } else if (opcion == 3){
+            imprimirAnimales();
+        }
+    }
+    
+    public static void imprimirPosicion(){
+        System.out.println("Ingrese la posicion: ");
+        int pos = sc.nextInt();
+        System.out.println(registroAnimales.get(pos).toString());
+    }
+    
+    public static void imprimirNombreCientifico(){
+        System.out.print("Ingrese el nombre cientifico: ");
+        sc.nextLine();
+        String nombreBuscar= sc.nextLine();
+        
+        for (Animales animal : registroAnimales) {
+            if(animal.getNombreCientifico().equals(nombreBuscar)){
+                System.out.println(animal.toString());
+            }
+        }        
+    }
+    
+    public static void imprimirAnimales(){
+        for (Animales animal : registroAnimales) {
+            System.out.println(animal.toString());
+        }
+    }
+    
+    public static void alimentacion(){
+        
+    }
+    
+    public static void eliminarAnimal(){
+        
     }
 }
