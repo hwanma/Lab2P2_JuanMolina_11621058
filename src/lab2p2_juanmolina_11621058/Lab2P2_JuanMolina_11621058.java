@@ -29,7 +29,7 @@ public class Lab2P2_JuanMolina_11621058 {
     
     public static int menu(){
         System.out.println("");
-        System.out.println("");
+        System.out.println("*****REGISTRO DE ANIMALES*****");
         System.out.println("0. Salir");
         System.out.println("1. Agregar Animal\n" +
                             "2. Editar Animal\n" +
