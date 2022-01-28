@@ -91,7 +91,7 @@ public class Lab2P2_JuanMolina_11621058 {
         if(opcion == 1){
             editarAtributo(pos);
         } else if (opcion == 2){
-            editarTodo();
+            editarTodo(pos);
         }
     }
     
@@ -127,7 +127,22 @@ public class Lab2P2_JuanMolina_11621058 {
             System.out.println("Vida: ");
             registroAnimales.get(pos).setVida(sc.nextInt());
         }
-        
-        
+    }
+    
+    public static void editarTodo(int pos){
+        System.out.println("Nombre Cientifico: ");
+        registroAnimales.get(pos).setNombreCientifico(sc.nextLine());
+        System.out.println("Nombre Comun: ");
+        registroAnimales.get(pos).setNombreComun(sc.next());
+        System.out.println("Habitat: ");
+        registroAnimales.get(pos).setHabitat(sc.next());
+        System.out.println("Alimentacion: ");
+        registroAnimales.get(pos).setAlimentacion(sc.next());
+        System.out.println("Descripcion Rasgos: ");
+        registroAnimales.get(pos).setDescripcionRasgos(sc.nextLine());
+        System.out.println("Distribucion Geografica: ");
+        registroAnimales.get(pos).setDistribucionGeografica(sc.nextLine());
+        System.out.println("Vida: ");
+        registroAnimales.get(pos).setVida(sc.nextInt());
     }
 }
