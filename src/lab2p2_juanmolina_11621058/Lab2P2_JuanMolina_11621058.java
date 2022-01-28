@@ -76,6 +76,10 @@ public class Lab2P2_JuanMolina_11621058 {
         String distrGeografica = sc.nextLine();
         System.out.print("Vida: ");
         int vida = sc.nextInt();
+        while(vida<=0){
+            System.out.print("Vida: ");
+            vida = sc.nextInt();
+        }
         registroAnimales.add(new Animales(nombreCientifico, nombreComun, habitat, alimentacion, descripcionRasgos, distrGeografica, vida));
     }
     
@@ -206,10 +210,35 @@ public class Lab2P2_JuanMolina_11621058 {
     }
     
     public static void alimentacion(){
+        System.out.print("Ingrese posicion depredador: ");
+        int depredador= sc.nextInt();
+        int vidaDep = registroAnimales.get(depredador).getVida();
         
+        System.out.print("Ingrese el nombre presa: ");
+        int presa= sc.nextInt();
+        int vidaPresa = registroAnimales.get(presa).getVida();
+
+        registroAnimales.get(depredador).setVida(vidaDep+vidaPresa);
+        
+        registroAnimales.remove(presa);
     }
     
     public static void eliminarAnimal(){
+        System.out.print("Ingrese la posicion del animal a eliminar: ");
+        int pos = sc.nextInt();
+        registroAnimales.remove(pos);
+    }
+    
+    public static int pos(String n){
+        int counter = 0;
+        int pos = 0;
         
+        for (Animales animal : registroAnimales) {
+            if(animal.getNombreCientifico().equals(n)){
+                pos = counter;
+            }
+            counter ++;
+        }
+        return pos;
     }
 }
