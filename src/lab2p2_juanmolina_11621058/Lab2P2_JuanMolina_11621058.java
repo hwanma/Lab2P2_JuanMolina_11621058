@@ -71,11 +71,63 @@ public class Lab2P2_JuanMolina_11621058 {
         System.out.print("Alimentacion: ");
         String alimentacion = sc.next();
         System.out.print("Descripcino de Rasgos: ");
-        String descripcionRasgos = sc.next();
+        String descripcionRasgos = sc.nextLine();
         System.out.print("Distribucion Geografica: ");
-        String distrGeografica = sc.next();
+        String distrGeografica = sc.nextLine();
         System.out.print("Vida: ");
         int vida = sc.nextInt();
         registroAnimales.add(new Animales(nombreCientifico, nombreComun, habitat, alimentacion, descripcionRasgos, distrGeografica, vida));
+    }
+    
+    public static void editarAnimal(){
+        System.out.println("Ingrese el nombre cientifico: ");
+        String nombreEditar = sc.nextLine();
+        int pos = registroAnimales.indexOf(nombreEditar);
+        
+        System.out.println("1. Editar atributo\n"+
+                            "2. Editar todo\n");
+        int opcion = sc.nextInt();
+        
+        if(opcion == 1){
+            editarAtributo(pos);
+        } else if (opcion == 2){
+            editarTodo();
+        }
+    }
+    
+    public static void editarAtributo(int pos){
+        System.out.println("1. Nombre Cientifico\n"+
+                            "2. Nombre Comun\n"+
+                            "3. Habitat\n"+
+                            "4. Alimentacion\n"+
+                            "5. Descripcion de Rasgos\n"+
+                            "6. Distribucion Geografica\n"+
+                            "7. Vida\n");
+        System.out.print("Ingrese la opcion: ");
+        int opcion = sc.nextInt();
+        if(opcion == 1){
+            System.out.println("Nombre Cientifico: ");
+            registroAnimales.get(pos).setNombreCientifico(sc.nextLine());
+        }else if(opcion == 2){
+            System.out.println("Nombre Comun: ");
+            registroAnimales.get(pos).setNombreComun(sc.next());
+        }else if(opcion == 3){
+            System.out.println("Habitat: ");
+            registroAnimales.get(pos).setHabitat(sc.next());
+        }else if(opcion == 4){
+            System.out.println("Alimentacion: ");
+            registroAnimales.get(pos).setAlimentacion(sc.next());
+        }else if(opcion == 5){
+            System.out.println("Descripcion Rasgos: ");
+            registroAnimales.get(pos).setDescripcionRasgos(sc.nextLine());
+        }else if(opcion == 6){
+            System.out.println("Distribucion Geografica: ");
+            registroAnimales.get(pos).setDistribucionGeografica(sc.nextLine());
+        }else if(opcion == 7){
+            System.out.println("Vida: ");
+            registroAnimales.get(pos).setVida(sc.nextInt());
+        }
+        
+        
     }
 }
