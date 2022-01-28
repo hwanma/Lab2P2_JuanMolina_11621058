@@ -71,6 +71,7 @@ public class Lab2P2_JuanMolina_11621058 {
         System.out.print("Alimentacion: ");
         String alimentacion = sc.next();
         System.out.print("Descripcino de Rasgos: ");
+        sc.nextLine();
         String descripcionRasgos = sc.nextLine();
         System.out.print("Distribucion Geografica: ");
         String distrGeografica = sc.nextLine();
